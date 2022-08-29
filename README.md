@@ -8,34 +8,27 @@ Projeto Integrador do 5º Semestre de Banco de Dados - FATEC Profº Jessen Vidal
 <center>
   <table align="center">
     <tr>
-      <td align="center" width="15%">
+      <td align="center" width="20%">
           <p><b>Product Owner</b></p>
           <p><img src="https://github.com/EquipeFatec/api-5/blob/main/images/Time/Isabella.jpg"/></p>
           <p><a href="https://github.com/isarps">Isabella Rosa <br/> Peixoto Segundo </a>
           <a href="https://www.linkedin.com/in/isabellarps/"><img src="https://github.com/EquipeFatec/api/blob/main/images/linkedin.png"/></a></p>
       </td>
-      <td align="center" width="15%">
+      <td align="center" width="20%">
           <p><b>Scrum Master</b></p>
           <p><img src="https://github.com/EquipeFatec/api-5/blob/main/images/Time/Alexia.jpg"/></p>
           <p><a href="https://github.com/alexiakarine">Alexia Karine Silva <br/> dos Santos </a>
           <a href="https://www.linkedin.com/in/alexia-karine-silva-5b0a79116/"><img src="https://github.com/EquipeFatec/api/blob/main/images/linkedin.png"/></a></p>
         </td>
-      <td align="center" width="15%">
+      <td align="center" width="20%">
           <p><b>Dev</b></p>
           <p><img src="https://github.com/EquipeFatec/api-5/blob/main/images/Time/Guilherme.jpg"/></p>
           <p><a href="https://github.com/guitambau">Guilherme de Oliveira <br/> Perfeito </a>
           <a href="https://www.linkedin.com/in/guilherme-perfeito-a76729168/"><img src="https://github.com/EquipeFatec/api/blob/main/images/linkedin.png"/></a></p>
         </td>
-      <td align="center" width="15%">
+      <td align="center" width="20%">
           <p><b>Dev</b></p>
-          <p><img src="https://github.com/EquipeFatec/api-5/blob/main/images/Time/Gabriel.jpg"/></p>
-          <p><a href="https://github.com/gabsana">Gabriel Oliveira Sana </a>
-          <a href="https://www.linkedin.com/in/gabriel-sana-ba91a4147/"><img src="https://github.com/EquipeFatec/api/blob/main/images/linkedin.png"/></a></p>
-          <br/>
-        </td>
-      <td align="center" width="15%">
-          <p><b>Dev</b></p>
-          <p><img src="https://github.com/EquipeFatec/api-5/blob/main/images/Time/Helen.jpg"/></p>
+          <p><img src="https://github.com/EquipeFatec/api-5/blob/main/images/Time/Helen.jpg" width="80%"/></p>
           <p><a href="https://github.com/HelenAlevato">Helen Cristina <br/> Alevato Rodrigues </a>
           <a href="https://www.linkedin.com/in/helenalevato/"><img src="https://github.com/EquipeFatec/api/blob/main/images/linkedin.png"/></a></p>
         </td>
