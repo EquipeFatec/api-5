@@ -3,8 +3,11 @@ package SanjaValley.Persuance.Service;
 import SanjaValley.Persuance.Entity.Palavra;
 import SanjaValley.Persuance.Repository.PalavraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+@Service
 
 public class PalavraServiceImp implements PalavraService{
 
@@ -18,10 +21,21 @@ public class PalavraServiceImp implements PalavraService{
         return palavraRepository.save(palavra);
     }
 
-    public List<Palavra> buscaPorPalavra(String nome){
+    public List<Palavra> buscaPorPalavra(String palavra){
 
-        return palavraRepository.findByPalavra(nome);
+        return palavraRepository.findByPalavra(palavra);
     }
+
+
+/*
+    public List<Palavra> buscarPorPalavraNoTexto(String palavra){
+        String[] arrOfStr = palavra.split(" ");
+
+        for (String a : arrOfStr)
+            palavraRepository.findByPalavra(a);
+
+        return  null;
+    }*/
 
 
 }
