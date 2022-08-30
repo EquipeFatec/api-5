@@ -5,10 +5,11 @@
             <img alt="logo" src="../assets/logoo.png" height="200" class="mr-2">
         </div>
         <div>
-            <span class="p-input-icon-left">
-                <i class="pi pi-search" />
-                <InputText type="text" v-model="value3" placeholder="Search" />
-                <!-- <Button icon="pi pi-search" class="p-button-rounded" /> -->
+            <span class="p-float-label">
+                <!-- <i class="pi pi-search" /> -->
+                <InputText type="text" v-model="value3" placeholder="Buscar" />
+                <Button type="button" icon="pi pi-search" class="search" style="margin-left: 5px" />
+
             </span>
         </div>
         <div class="p-button-rounded">
@@ -29,10 +30,11 @@ import Menubar from 'primevue/menubar';
 import { ref } from 'vue';
 import Image from 'primevue/image';
 import Button from 'primevue/button';
+import Word from '@/components/Word.vue'
 
 
 export default {
-    name: 'HomeView',
+    name: 'AboutView',
     components: {
         HelloWorld,
         Card,
@@ -40,7 +42,8 @@ export default {
         InputText,
         Menubar,
         Image,
-        Button
+        Button,
+        Word
     },
     data() {
         return {
@@ -68,23 +71,22 @@ export default {
      flex-direction: column;
  }
  
-  .mr-2 {
+ .mr-2 {
      width: 270px;
      height: auto;
  }
-
-  .p-input-icon-left {
  
-     margin-top: 10px; 
+ .p-float-label {
  
+     margin-top: 10px;
  }
-
-  .p-inputtext {
+ 
+ .p-inputtext {
      width: 500px;
      border-radius: 9px;
      border-color: rgb(39, 39, 88);
-}
-
+ }
+ 
  .p-button-rounded {
      margin-top: 15px;
      display: flex;
@@ -98,5 +100,14 @@ export default {
      border-color: rgb(70, 70, 175);
  }
  
+ .search {
+     margin-top: 15px;
+     display: flex;
+     width: 25%;
+     size: 25px;
+     justify-content: space-around;
+     border-radius: 55px;
+ 
+ }
  </style> >
 
