@@ -10,26 +10,36 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name="PALAVRA")
+@Table(name="pa_palavra")
 public class Palavra {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "PA_ID")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pa_id")
+    private int id;
 
-    @Column(name = "PA_PALAVRA")
+    @Column(name = "pa_palavra")
     private String palavra;
 
-    @Column(name = "PA_TRADUCAO")
+    @Column(name = "pa_traducao")
     private String traducao;
 
-    @Column(name = "PA_APROVADA")
-    private int aprovada;
+    @Column(name = "pa_aprovado")
+    private boolean aprovada;
 
-    @Column(name = "PA_SIGNIFICADO")
+    @Column(name = "pa_significado")
     private String descricao;
 
+    @Column(name = "pa_conjugacao")
+    private String conjucacao;
 
+    @Column(name = "pa_ex_aprovado")
+    private String exemploAprovado;
+
+    @Column(name = "pa_classe_gramatical")
+    private String classeGramatical;
+
+    @Column(name = "pa_categoria")
+    private String categoria;
 }
