@@ -5,14 +5,9 @@ import TelaUpload from '../views/TelaUpload.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'about',
-    //component: AboutView
-
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+      path: '/',
+      name: 'about',
+      component: AboutView
   },
   {
     path: '/tela-upload',
@@ -20,8 +15,7 @@ const routes = [
     component: TelaUpload
   }
 
-    
-  //},
+
   // {
   //   path: '/about',
   //   name: 'about',
@@ -30,7 +24,6 @@ const routes = [
   //   // which is lazy-loaded when the route is visited.
   //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   // }
-
 ]
 
 const router = createRouter({
