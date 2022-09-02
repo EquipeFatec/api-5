@@ -1,174 +1,101 @@
 <template>
 	<div class="hello">
-		<Menubar :model="items">
-		</Menubar>
-		<img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" height="40"
-			class="mr-2">
-		<InputText placeholder="Search" type="text" />
+		<div>
+			<!-- <img alt="logo" src="../assets/logo_1.png" height="200" class="mr-2"> -->
+			<img alt="logo" src="../assets/logoo.png" height="200" class="mr-2">
+		</div>
+		<div>
+			<span class="p-input-icon-left">
+				<i class="pi pi-search" />
+				<InputText type="text" v-model="value3" placeholder="Search" />
+				<!-- <Button icon="pi pi-search" class="p-button-rounded" /> -->
+			</span>
+		</div>
+		<div class="p-button-rounded">
+			<Button label="Consultar Textos" class="p-button-outlined p-button-info" />
+			<Button label="Consultar arquivos" class="p-button-outlined p-button-info" />
+		</div>
+
 	</div>
 </template>
 
 <script>
+// @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue'
+import Card from 'primevue/card';
+import Panel from 'primevue/panel';
+import InputText from 'primevue/inputtext';
 import Menubar from 'primevue/menubar';
+import { ref } from 'vue';
+import Image from 'primevue/image';
+import Button from 'primevue/button';
+
 
 export default {
 	name: 'HelloWorld',
-	props: {
-		msg: String,
-	},
 	components: {
+		HelloWorld,
+		Card,
+		Panel,
+		InputText,
 		Menubar,
-
+		Image,
+		Button
 	},
 	data() {
 		return {
-			items: [
-				{
-					label: 'File',
-					icon: 'pi pi-fw pi-file',
-					items: [
-						{
-							label: 'New',
-							icon: 'pi pi-fw pi-plus',
-							items: [
-								{
-									label: 'Bookmark',
-									icon: 'pi pi-fw pi-bookmark'
-								},
-								{
-									label: 'Video',
-									icon: 'pi pi-fw pi-video'
-								}
-							]
-						},
-						{
-							label: 'Delete',
-							icon: 'pi pi-fw pi-trash'
-						},
-						{
-							separator: true
-						},
-						{
-							label: 'Export',
-							icon: 'pi pi-fw pi-external-link'
-						}
-					]
-				},
-				{
-					label: 'Edit',
-					icon: 'pi pi-fw pi-pencil',
-					items: [
-						{
-							label: 'Left',
-							icon: 'pi pi-fw pi-align-left'
-						},
-						{
-							label: 'Right',
-							icon: 'pi pi-fw pi-align-right'
-						},
-						{
-							label: 'Center',
-							icon: 'pi pi-fw pi-align-center'
-						},
-						{
-							label: 'Justify',
-							icon: 'pi pi-fw pi-align-justify'
-						}
-					]
-				},
-				{
-					label: 'Users',
-					icon: 'pi pi-fw pi-user',
-					items: [
-						{
-							label: 'New',
-							icon: 'pi pi-fw pi-user-plus',
 
-						},
-						{
-							label: 'Delete',
-							icon: 'pi pi-fw pi-user-minus',
-
-						},
-						{
-							label: 'Search',
-							icon: 'pi pi-fw pi-users',
-							items: [
-								{
-									label: 'Filter',
-									icon: 'pi pi-fw pi-filter',
-									items: [
-										{
-											label: 'Print',
-											icon: 'pi pi-fw pi-print'
-										}
-									]
-								},
-								{
-									icon: 'pi pi-fw pi-bars',
-									label: 'List'
-								}
-							]
-						}
-					]
-				},
-				{
-					label: 'Events',
-					icon: 'pi pi-fw pi-calendar',
-					items: [
-						{
-							label: 'Edit',
-							icon: 'pi pi-fw pi-pencil',
-							items: [
-								{
-									label: 'Save',
-									icon: 'pi pi-fw pi-calendar-plus'
-								},
-								{
-									label: 'Delete',
-									icon: 'pi pi-fw pi-calendar-minus'
-								}
-							]
-						},
-						{
-							label: 'Archieve',
-							icon: 'pi pi-fw pi-calendar-times',
-							items: [
-								{
-									label: 'Remove',
-									icon: 'pi pi-fw pi-calendar-minus'
-								}
-							]
-						}
-					]
-				},
-				{
-					label: 'Quit',
-					icon: 'pi pi-fw pi-power-off'
-				}
-			]
 		}
 	}
 }
+
+
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-	margin: 40px 0 0;
-}
+ <style>
+ * {
+ 	padding: 0;
+ 	margin: 0;
+ 	box-sizing: border-box;
+ }
+ 
+ .hello {
+ 	background-color: rgba(242, 248, 248, 0.452);
+ 	height: 100vh;
+ 	justify-content: center;
+ 	display: flex;
+ 	align-items: center;
+ 	flex-direction: column;
+ }
+ 
+ .mr-2 {
+ 	width: 270px;
+ 	height: auto;
+ }
+ 
+ .p-input-icon-left {
+ 
+ 	margin-top: 10px;
+ 
+ }
+ 
+ .p-inputtext {
+ 	width: 500px;
+ 	border-radius: 9px;
+ 	border-color: rgb(39, 39, 88);
+ }
+ 
+ .p-button-rounded {
+ 	margin-top: 15px;
+ 	display: flex;
+ 	width: 25%;
+ 	size: 25px;
+ 	justify-content: space-around;
+ 	border-radius: 55px;
+ }
+ 
+ .p-button-outlined p-button-info {
+ 	border-color: rgb(70, 70, 175);
+ }
+ </style> >
 
-ul {
-	list-style-type: none;
-	padding: 0;
-}
-
-li {
-	display: inline-block;
-	margin: 0 10px;
-}
-
-a {
-	color: #42b983;
-}
-</style>
