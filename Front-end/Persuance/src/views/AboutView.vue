@@ -8,14 +8,33 @@
             <span class="p-float-label">
                 <!-- <i class="pi pi-search" /> -->
                 <InputText type="text" v-model="value3" placeholder="Buscar" />
-                <Button type="button" icon="pi pi-search" class="search" style="margin-left: 5px" />
+                <Button type="button" icon="pi pi-search" class="search" style="margin-left: 5px" @click="buscar" />
 
             </span>
         </div>
-        <div class="p-button-rounded">
+        <div class=" p-button-rounded">
             <Button label="Consultar Textos" class="p-button-outlined p-button-info" />
             <Button label="Consultar arquivos" class="p-button-outlined p-button-info" />
         </div>
+
+        <Dialog class="busca" v-model:visible="displayModalBusca" :style="{ width: '100vw' }" :modal="true">
+            <div class="card">
+
+                <DataTable :value="products" sortMode="multiple" responsiveLayout="scroll">
+                    <Column field="palavra" header="Palavra" :sortable="true"></Column>
+                    <Column field="conjugacao" header="Conjugação" :sortable="true"></Column>
+                    <Column field="traducao" header="Tradução" :sortable="true"></Column>
+                    <Column field="aprovacao" header="Aprovação" :sortable="true"></Column>
+                    <Column field="significado" header="Significado" :sortable="true"></Column>
+                    <Column field="exemploAprovado" header="Exemplo Aprovado" :sortable="true"></Column>
+                    <Column field="classeGramatical" header="Classe gramatical" :sortable="true"></Column>
+                    <Column field="categoriaTecnico" header="Categoria dos nomes técnicos" :sortable="true"></Column>
+
+                </DataTable>
+            </div>
+        </Dialog>
+
+
 
     </div>
 </template>
@@ -30,7 +49,11 @@ import Menubar from 'primevue/menubar';
 import { ref } from 'vue';
 import Image from 'primevue/image';
 import Button from 'primevue/button';
-import Word from '@/components/Word.vue'
+import Word from '@/components/Word.vue';
+import Dialog from 'primevue/dialog';
+import Column from 'primevue/column';
+import DataTable from 'primevue/datatable';
+
 
 
 export default {
@@ -43,12 +66,22 @@ export default {
         Menubar,
         Image,
         Button,
-        Word
+        Word,
+        Dialog,
+        Column,
+        DataTable
+
     },
     data() {
         return {
+            displayModalBusca: false,
 
         }
+    },
+    methods: {
+        buscar() {
+            this.displayModalBusca = true;
+        },
     }
 }
 
