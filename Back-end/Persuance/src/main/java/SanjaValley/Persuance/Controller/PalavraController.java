@@ -2,7 +2,6 @@ package SanjaValley.Persuance.Controller;
 
 
 import SanjaValley.Persuance.Entity.Palavra;
-import SanjaValley.Persuance.Repository.PalavraRepository;
 import SanjaValley.Persuance.Service.PalavraServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:8080")
-@RequestMapping(value = "/teste")
+@CrossOrigin
+@RequestMapping(value = "/search")
 public class PalavraController {
 
     @Autowired
@@ -32,7 +31,7 @@ public class PalavraController {
         }
     }
 
-
+/*
     @PostMapping("/save")
     public ResponseEntity<Palavra> createTutorial(@RequestBody Palavra palavra) {
         try {
@@ -42,5 +41,5 @@ public class PalavraController {
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
+    }*/
 }
