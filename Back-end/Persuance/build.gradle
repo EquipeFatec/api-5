@@ -26,8 +26,10 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-	compileOnly 'org.apache.commons:commons-csv:1.9.0'
+// https://mvnrepository.com/artifact/org.apache.commons/commons-csv
+	implementation 'org.apache.commons:commons-csv:1.9.0'
+	//compileOnly 'org.apache.commons:commons-csv:1.9.0'
+	//implementation 'org.apache.commons:commons-csv:1.8'
 
 
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java

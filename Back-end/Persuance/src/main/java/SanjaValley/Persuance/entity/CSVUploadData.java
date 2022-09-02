@@ -1,4 +1,4 @@
-package SanjaValley.Persuance.entity;
+package SanjaValley.Persuance.Entity;
 
 import java.util.Date;
 
@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CSV_upload_data")
 public class CSVUploadData {
+
     public CSVUploadData() {
 
     }

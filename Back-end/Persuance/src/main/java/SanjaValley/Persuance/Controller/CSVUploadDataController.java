@@ -1,7 +1,8 @@
-package SanjaValley.Persuance.controllers;
+package SanjaValley.Persuance.Controller;
 
 import java.util.List;
 
+import SanjaValley.Persuance.Entity.CSVUploadData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import SanjaValley.Persuance.entity.CSVUploadData;
-import SanjaValley.Persuance.entity.ResponseMessage;
-import SanjaValley.Persuance.helpers.CSVHelper;
-import SanjaValley.Persuance.services.CSVService;
+import SanjaValley.Persuance.Entity.CSVUploadData;
+import SanjaValley.Persuance.Entity.ResponseMessage;
+import SanjaValley.Persuance.Helper.CSVHelper;
+import SanjaValley.Persuance.Service.CSVService;
 
 @CrossOrigin(origins = "*", originPatterns = "*")
 @RestController
