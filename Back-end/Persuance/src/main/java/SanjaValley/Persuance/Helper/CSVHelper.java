@@ -11,13 +11,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.web.multipart.MultipartFile;
 
-import SanjaValley.Persuance.Entity.CSVUploadData;
+import SanjaValley.Persuance.entity.CSVUploadData;
 
 public class CSVHelper {
   public static String TYPE = "text/csv";
@@ -35,14 +34,14 @@ public class CSVHelper {
       List<CSVUploadData> uploadedData = new ArrayList<CSVUploadData>();
       Iterable<CSVRecord> csvRecords = csvParser.getRecords();
       for (CSVRecord csvRecord : csvRecords) {
-        String palavra = csvRecord.get("palavra");
-        String conjugacao = csvRecord.get("conjugacao");
-        String tradução = csvRecord.get("tradução");
-        String aprovada = csvRecord.get("aprovada");
-        String significadoAlternativa = csvRecord.get("significadoAlternativa");
-        String exemploAprovado = csvRecord.get("exemploAprovado");
-        String classeGramatical = csvRecord.get("classeGramatical");
-        String categoriaNomesTecnicos = csvRecord.get("categoriaNomesTecnicos");
+        String palavra = csvRecord.get(0);
+        String conjugacao = csvRecord.get(1);
+        String tradução = csvRecord.get(2);
+        String aprovada = csvRecord.get(3);
+        String significadoAlternativa = csvRecord.get(4);
+        String exemploAprovado = csvRecord.get(5);
+        String classeGramatical = csvRecord.get(6);
+        String categoriaNomesTecnicos = csvRecord.get(7);
 
         CSVUploadData csvUploadData = new CSVUploadData(palavra, conjugacao, tradução, aprovada, significadoAlternativa, exemploAprovado, classeGramatical, categoriaNomesTecnicos);
       

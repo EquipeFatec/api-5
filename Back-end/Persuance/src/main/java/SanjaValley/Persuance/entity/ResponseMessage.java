@@ -1,4 +1,4 @@
-package SanjaValley.Persuance.Entity;
+package SanjaValley.Persuance.entity;
 
 public class ResponseMessage {
   private String message;

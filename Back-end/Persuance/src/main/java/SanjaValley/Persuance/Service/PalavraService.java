@@ -1,7 +1,6 @@
 package SanjaValley.Persuance.Service;
 
-import SanjaValley.Persuance.Entity.Palavra;
-import org.springframework.stereotype.Service;
+import SanjaValley.Persuance.entity.Palavra;
 
 public interface PalavraService {
 
