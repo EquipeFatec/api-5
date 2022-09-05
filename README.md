@@ -54,12 +54,14 @@ Criado pela equipe _Sanja Valley_, este projeto visa desenvolver uma aplicação
 <hr/>
 
 # :dart: Requisitos
-- O sistema deve permitir a consulta de palavras (ou conjunto de palavras) retornando a palavra (ou conjunto de palavras) , conjugação, tradução, aprovação, significado (ou alternativa, caso não seja aprovada), exemplo aprovado, classe gramatical, categoria dos nomes técnicos
-- O sistema deve possuir uma barra de pesquisa
-- O sistema deve permitir adicionar, excluir e editar palavras
-- O sistema deve retornar ao usuário as palavras aprovadas e as sugestões de alternativas das palavras não aprovadas
-- O sistema deve possuir um usuário Admin padrão
-- O sistema deve restringir a criação, edição e exclusão de palavras ao usuário administrador
-- O sistema deve receber um texto e identificar as palavras aprovadas ou não (adicional)
-- O sistema deve permitir a importação de arquivo com as palavras para popular a base de dados
+1. O sistema deve permitir a consulta de palavras (ou conjunto de palavras) retornando a palavra (ou conjunto de palavras) , conjugação, tradução, aprovação, significado (ou alternativa, caso não seja aprovada), exemplo aprovado, classe gramatical, categoria dos nomes técnicos
+2. O sistema deve possuir uma barra de pesquisa
+3. O sistema deve permitir adicionar, excluir e editar palavras
+4. O sistema deve retornar ao usuário as palavras aprovadas e as sugestões de alternativas das palavras não aprovadas
+5. O sistema deve possuir um usuário Admin padrão
+6. O sistema deve restringir a criação, edição e exclusão de palavras ao usuário administrador
+7. O sistema deve receber um texto e identificar as palavras aprovadas ou não (adicional)
+8. O sistema deve permitir a importação e atualização de arquivo com as palavras para popular a base de dados
+9. O sistema deve permitir que o administrador adicione e verifique as palavras novas (n° da revisão) e qual a origem do dado (coluna de origem)
+10. O sistema deve permitir que o administrador verifique por letra a quantidade de palavras aprovadas ou não e quantas palavras de uma determinada classe gramatical existem
 <br/><br/>
