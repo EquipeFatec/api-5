@@ -1,11 +1,23 @@
 <template>
-  <FileUpload mode="basic" name="demo[]" url="./upload" :auto="true" />
+  <Toast />
   <main>
-    <div v-if="!listaCSV" id="painelRedefinir">
+    <div id="painelRedefinir">
       <h3 style="font-size: 30px">CSV não existente, informe</h3>
       <div style="display: flex; justify-content: center; margin: 30px">
-        <csv-input :afterSubmit="loadCSV" />
-        <FileUpload name="demo[]" url="./upload" />
+        <FileUpload
+          mode="basic"
+          name="file"
+          accept=".csv"
+          url="http://localhost:8081/api/csv/upload"
+          :maxFileSize="1000000"
+          @upload="onUpload"
+          :auto="true"
+          multiple="false"
+        >
+          <template #empty>
+            <p>Drag and drop files to here to upload.</p>
+          </template>
+        </FileUpload>
       </div>
     </div>
   </main>
@@ -14,8 +26,8 @@
 <script>
 // import axios from "axios";
 import { onBeforeMount } from "@vue/runtime-core";
-import CsvInput from "../components/CSVInput.vue";
 import FileUpload from "primevue/fileupload";
+import Toast from "primevue/toast";
 import Button from "primevue/button";
 
 export default {
@@ -27,28 +39,47 @@ export default {
   },
   name: "TelaUpload",
   components: {
-    CsvInput,
     FileUpload,
     Button,
+    Toast
   },
 
   methods: {
-    loadCSV: async function () {
+    onUpload(event) {
+      this.$toast.add({
+        severity: "info",
+        summary: "Success",
+        detail: "File Uploaded",
+        life: 3000,
+      });
+
+      alert("teste");
+      this.enviarArquivo();
+    },
+
+    enviarArquivo() {
+      const formData = new FormData();
+
+      formData.append("file", this.file);
+
       const headers = {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${localStorage.getItem("userToken")}`,
       };
 
-      let response = await axios.get("http://localhost:8081/api/csv/csvdata", {
-        headers,
-      });
-      this.listaCSV = response.data;
-      console.log("teste primeiro");
-    },
+      axios
+        .post("http://localhost:8081/api/csv/upload", formData, { headers })
+        .then((res) => {
+          res.data.files;
+          res.status;
 
-    created: async function () {
-      await this.loadCSV();
-      console.log("teste segundo", this.listaCSV);
+          if (res.status === 200) {
+            alert(`O arquivo ${this.fileName} foi enviado com sucesso`);
+            this.afterSubmit();
+          } else {
+            alert(`Deu erro`);
+          }
+        });
     },
   },
 };
