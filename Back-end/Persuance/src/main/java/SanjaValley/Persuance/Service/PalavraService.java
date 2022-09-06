@@ -1,6 +1,6 @@
 package SanjaValley.Persuance.Service;
 
-import SanjaValley.Persuance.entity.Palavra;
+import SanjaValley.Persuance.Entity.Palavra;
 
 public interface PalavraService {
 

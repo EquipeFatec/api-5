@@ -16,8 +16,7 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.web.multipart.MultipartFile;
 
-//import SanjaValley.Persuance.entity.CSVUploadData;
-import SanjaValley.Persuance.entity.Palavra;
+import SanjaValley.Persuance.Entity.Palavra;
 
 
 public class CSVHelper {

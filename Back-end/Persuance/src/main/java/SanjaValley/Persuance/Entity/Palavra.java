@@ -1,4 +1,4 @@
-package SanjaValley.Persuance.entity;
+package SanjaValley.Persuance.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

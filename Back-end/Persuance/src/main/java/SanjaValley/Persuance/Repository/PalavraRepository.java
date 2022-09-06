@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import SanjaValley.Persuance.entity.Palavra;
+import SanjaValley.Persuance.Entity.Palavra;
 
 public interface PalavraRepository extends JpaRepository<Palavra, Long> {
 

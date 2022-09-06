@@ -1,4 +1,5 @@
-package SanjaValley.Persuance.entity;
+package SanjaValley.Persuance.Entity;
+/*package SanjaValley.Persuance.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -112,4 +113,4 @@ public class CSVUploadData {
         this.categoriaNomesTecnicos = categoriaNomesTecnicos;
     }
 
-}
+}*/

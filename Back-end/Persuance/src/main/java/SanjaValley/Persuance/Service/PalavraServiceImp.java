@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import SanjaValley.Persuance.Entity.Palavra;
 import SanjaValley.Persuance.Repository.PalavraRepository;
-import SanjaValley.Persuance.entity.Palavra;
 
 @Service
 
