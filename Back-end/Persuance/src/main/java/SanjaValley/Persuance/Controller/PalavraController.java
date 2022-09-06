@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import SanjaValley.Persuance.Entity.Palavra;
 import SanjaValley.Persuance.Service.PalavraServiceImp;
-import SanjaValley.Persuance.entity.Palavra;
 
 @RestController
 @CrossOrigin

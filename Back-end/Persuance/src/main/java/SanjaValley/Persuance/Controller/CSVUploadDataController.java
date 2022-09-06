@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import SanjaValley.Persuance.Entity.Palavra;
+import SanjaValley.Persuance.Entity.ResponseMessage;
 import SanjaValley.Persuance.Helper.CSVHelper;
 import SanjaValley.Persuance.Service.CSVService;
-import SanjaValley.Persuance.entity.CSVUploadData;
-import SanjaValley.Persuance.entity.Palavra;
-import SanjaValley.Persuance.entity.ResponseMessage;
 
 @CrossOrigin(origins = "*", originPatterns = "*")
 @RestController
