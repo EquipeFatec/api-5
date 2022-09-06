@@ -64,4 +64,16 @@ Criado pela equipe _Sanja Valley_, este projeto visa desenvolver uma aplicação
 8. O sistema deve permitir a importação e atualização de arquivo com as palavras para popular a base de dados
 9. O sistema deve permitir que o administrador adicione e verifique as palavras novas (n° da revisão) e qual a origem do dado (coluna de origem)
 10. O sistema deve permitir que o administrador verifique por letra a quantidade de palavras aprovadas ou não e quantas palavras de uma determinada classe gramatical existem
-<br/><br/>
+<br/>
+
+<hr/>
+
+# :memo: Backlog
+
+<img src="https://github.com/EquipeFatec/api-5/blob/main/documents/backlog.png" width="100%"><br/>
+
+<hr/>
+
+# :open_file_folder: Entregas
+
+- <a href="https://github.com/EquipeFatec/api-5/blob/main/documents/sprint1.md/">Sprint 1</a>
