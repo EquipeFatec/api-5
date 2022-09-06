@@ -7,7 +7,7 @@
         <div>
             <span class="p-float-label">
                 <!-- <i class="pi pi-search" /> -->
-                <InputText type="text" v-model="value3" placeholder="Buscar" />
+                <InputText type="text" v-model="palavra" placeholder="Buscar" />
                 <Button type="button" icon="pi pi-search" class="search" style="margin-left: 5px" @click="buscar" />
 
             </span>
@@ -81,8 +81,10 @@ export default {
     methods: { //todas as funções
         buscar() {
             this.displayModalBusca = true;
-            axios.get();
-            this.word = response.data;
+            axios.get("http://localhost:8081/search/" + palavra).then((response) => {
+                this.word = response.data;
+                console.log(response.data);
+            })
 
         },
 
@@ -95,59 +97,59 @@ export default {
 
 </script>
 
- <style>
- * {
-     padding: 0;
-     margin: 0;
-     box-sizing: border-box;
- }
- 
- .about {
-     background-color: rgba(242, 248, 248, 0.452);
-     height: 100vh;
-     justify-content: center;
-     display: flex;
-     align-items: center;
-     flex-direction: column;
- }
- 
- .mr-2 {
-     width: 270px;
-     height: auto;
- }
- 
- .p-float-label {
- 
-     margin-top: 10px;
- }
- 
- .p-inputtext {
-     width: 500px;
-     border-radius: 9px;
-     border-color: rgb(39, 39, 88);
- }
- 
- .p-button-rounded {
-     margin-top: 15px;
-     display: flex;
-     width: 25%;
-     size: 25px;
-     justify-content: space-around;
-     border-radius: 55px;
- }
- 
- .p-button-outlined p-button-info {
-     border-color: rgb(70, 70, 175);
- }
- 
- .search {
-     margin-top: 15px;
-     display: flex;
-     width: 25%;
-     size: 25px;
-     justify-content: space-around;
-     border-radius: 55px;
- 
- }
- </style> >
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.about {
+    background-color: rgba(242, 248, 248, 0.452);
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mr-2 {
+    width: 270px;
+    height: auto;
+}
+
+.p-float-label {
+
+    margin-top: 10px;
+}
+
+.p-inputtext {
+    width: 500px;
+    border-radius: 9px;
+    border-color: rgb(39, 39, 88);
+}
+
+.p-button-rounded {
+    margin-top: 15px;
+    display: flex;
+    width: 25%;
+    size: 25px;
+    justify-content: space-around;
+    border-radius: 55px;
+}
+
+.p-button-outlined p-button-info {
+    border-color: rgb(70, 70, 175);
+}
+
+.search {
+    margin-top: 15px;
+    display: flex;
+    width: 25%;
+    size: 25px;
+    justify-content: space-around;
+    border-radius: 55px;
+
+}
+</style> >
 
