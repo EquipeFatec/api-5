@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import SanjaValley.Persuance.Helper.CSVHelper;
 import SanjaValley.Persuance.Service.CSVService;
 import SanjaValley.Persuance.entity.CSVUploadData;
+import SanjaValley.Persuance.entity.Palavra;
 import SanjaValley.Persuance.entity.ResponseMessage;
 
 @CrossOrigin(origins = "*", originPatterns = "*")
@@ -43,9 +44,9 @@ public class CSVUploadDataController {
 	}
 
 	@GetMapping("/csvdata")
-	public ResponseEntity<List<CSVUploadData>> getAllCSVUploadData() {
+	public ResponseEntity<List<Palavra>> getAllCSVUploadData() {
 		try {
-			List<CSVUploadData> csvUploadData = csvService.getAllCSVUploadData();
+			List<Palavra> csvUploadData = csvService.getAllPalavra();
 			if (csvUploadData.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}

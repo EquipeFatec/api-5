@@ -34,12 +34,12 @@ public class Palavra {
     private boolean aprovada;
 
     @Column(name = "pa_significado")
-    private String descricao;
+    private String significado;
 
     @Column(name = "pa_conjugacao")
     private String conjucacao;
 
-    @Column(name = "pa_ex_aprovado")
+    @Column(name = "pa_ex_aprovado", length=500)
     private String exemploAprovado;
 
     @Column(name = "pa_classe_gramatical")

@@ -8,24 +8,24 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import SanjaValley.Persuance.Helper.CSVHelper;
-import SanjaValley.Persuance.Repository.CSVUploadDataRepository;
-import SanjaValley.Persuance.entity.CSVUploadData;
+import SanjaValley.Persuance.Repository.PalavraRepository;
+import SanjaValley.Persuance.entity.Palavra;
 
 @Service
 public class CSVService {
   @Autowired
-  CSVUploadDataRepository csvUploadDataRepository;
+  PalavraRepository PalavraRepository;
 
   public void save(MultipartFile file) {
     try {
-      List<CSVUploadData> csvUploadData = CSVHelper.csvToUploadedData(file.getInputStream());
-      csvUploadDataRepository.saveAll(csvUploadData);
+      List<Palavra> Palavra = CSVHelper.csvToUploadedData(file.getInputStream());
+      PalavraRepository.saveAll(Palavra);
     } catch(IOException e) {
       throw new RuntimeException("Failed to store csv data: " + e.getMessage());
     }
   }
 
-  public List<CSVUploadData> getAllCSVUploadData() {
-    return csvUploadDataRepository.findAll();
+  public List<Palavra> getAllPalavra() {
+    return PalavraRepository.findAll();
   }
 }
