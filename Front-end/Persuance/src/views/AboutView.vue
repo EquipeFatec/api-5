@@ -33,9 +33,6 @@
                 </DataTable>
             </div>
         </Dialog>
-
-
-
     </div>
 </template>
 
@@ -70,27 +67,28 @@ export default {
         Column,
         DataTable,
 
-
     },
     data() { //onde se declara o objetos e variáveis
         return {
             displayModalBusca: false,
-            word: [],
+            word: [{
+                "pa_palavra": "close", "pa_conjugacao": "fechar", "pa_traducao": "closed", "pa_aprovacao": 1,
+                "pa_significado": "teste", "pa_ex_aprovado": "close in port", "pa_classe_gramatical": "verbo",
+                "pa_categoria": "qualquer coisa"
+            }],
+            palavra: "",
+
         }
     },
     methods: { //todas as funções
         buscar() {
             this.displayModalBusca = true;
-            axios.get("http://localhost:8081/search/" + palavra).then((response) => {
-                this.word = response.data;
-                console.log(response.data);
+            axios.get("http://localhost:8082/search/" + this.palavra).then((response) => {
+                this.palavra = response;
+                console.log(response);
             })
 
         },
-
-    },
-    mounted() { //metodo que é executado quando a página é aberta
-
     },
 }
 
