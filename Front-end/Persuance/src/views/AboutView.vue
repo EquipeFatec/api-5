@@ -72,9 +72,9 @@ export default {
         return {
             displayModalBusca: false,
             word: [{
-                "pa_palavra": "close", "pa_conjugacao": "fechar", "pa_traducao": "closed", "pa_aprovacao": 1,
-                "pa_significado": "teste", "pa_ex_aprovado": "close in port", "pa_classe_gramatical": "verbo",
-                "pa_categoria": "qualquer coisa"
+                // "pa_palavra": "close", "pa_conjugacao": "fechar", "pa_traducao": "closed", "pa_aprovacao": 1,
+                // "pa_significado": "teste", "pa_ex_aprovado": "close in port", "pa_classe_gramatical": "verbo",
+                // "pa_categoria": "qualquer coisa"
             }],
             palavra: "",
 
@@ -87,8 +87,12 @@ export default {
                 this.palavra = response;
                 console.log(response);
             })
-
         },
+        // exibir({
+        //    axios.get("http://localhost:8082/search/" + this.palavra).then((response) => {
+        //         this.word = response;
+        //         console.log(response);
+        // })
     },
 }
 
