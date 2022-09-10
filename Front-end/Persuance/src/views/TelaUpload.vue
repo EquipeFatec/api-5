@@ -2,18 +2,10 @@
   <Toast />
   <main>
     <div id="painelRedefinir">
-      <h3 style="font-size: 30px">CSV não existente, informe</h3>
+      <h3 style="font-size: 30px">Importação de dados</h3>
       <div style="display: flex; justify-content: center; margin: 30px">
-        <FileUpload
-          mode="basic"
-          name="file"
-          accept=".csv"
-          url="http://localhost:8081/api/csv/upload"
-          :maxFileSize="1000000"
-          @upload="onUpload"
-          :auto="true"
-          multiple="false"
-        >
+        <FileUpload mode="basic" name="file" accept=".csv" url="http://localhost:8081/api/csv/upload"
+          :maxFileSize="1000000" @upload="onUpload" :auto="true" multiple="false">
           <template #empty>
             <p>Drag and drop files to here to upload.</p>
           </template>
@@ -47,13 +39,13 @@ export default {
   methods: {
     onUpload(event) {
       this.$toast.add({
-        severity: "info",
+        severity: "success",
         summary: "Success",
-        detail: "File Uploaded",
+        detail: "Upload concluído",
         life: 3000,
       });
 
-      alert("teste");
+      // alert("Incluso com sucesso");
       this.enviarArquivo();
     },
 
@@ -74,10 +66,10 @@ export default {
           res.status;
 
           if (res.status === 200) {
-            alert(`O arquivo ${this.fileName} foi enviado com sucesso`);
+            alert(`O arquivo ${this.fileName} foi incluido`);
             this.afterSubmit();
           } else {
-            alert(`Deu erro`);
+            alert(`Erro ao importar arquivo`);
           }
         });
     },

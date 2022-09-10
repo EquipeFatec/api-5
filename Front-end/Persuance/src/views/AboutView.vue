@@ -1,4 +1,5 @@
 <template>
+    <Toast />
     <div class="about">
         <div>
             <!-- <img alt="logo" src="../assets/logo_1.png" height="200" class="mr-2"> -->
@@ -21,14 +22,14 @@
             <div class="card">
 
                 <DataTable :value="word" sortMode="multiple" responsiveLayout="scroll">
-                    <Column field="pa_palavra" header="Palavra" :sortable="true"></Column>
-                    <Column field="pa_conjugacao" header="Conjugação" :sortable="true"></Column>
-                    <Column field="pa_traducao" header="Tradução" :sortable="true"></Column>
-                    <Column field="pa_aprovacao" header="Aprovação" :sortable="true"></Column>
-                    <Column field="pa_significado" header="Significado" :sortable="true"></Column>
-                    <Column field="pa_ex_aprovado" header="Exemplo Aprovado" :sortable="true"></Column>
-                    <Column field="pa_classe_gramatical" header="Classe gramatical" :sortable="true"></Column>
-                    <Column field="pa_categoria" header="Categoria dos nomes técnicos" :sortable="true"></Column>
+                    <Column field="palavra" header="Palavra" :sortable="true"></Column>
+                    <Column field="conjucacao" header="Conjugação" :sortable="true"></Column>
+                    <Column field="traducao" header="Tradução" :sortable="true"></Column>
+                    <Column field="aprovada" header="Aprovação" :sortable="true"></Column>
+                    <Column field="significado" header="Significado" :sortable="true"></Column>
+                    <Column field="exemploAprovado" header="Exemplo Aprovado" :sortable="true"></Column>
+                    <Column field="classeGramatical" header="Classe gramatical" :sortable="true"></Column>
+                    <Column field="categoria" header="Categoria dos nomes técnicos" :sortable="true"></Column>
 
                 </DataTable>
             </div>
@@ -38,7 +39,7 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue';
 import Card from 'primevue/card';
 import Panel from 'primevue/panel';
 import InputText from 'primevue/inputtext';
@@ -51,6 +52,8 @@ import Dialog from 'primevue/dialog';
 import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
 import axios from "axios";
+import Toast from 'primevue/toast';
+
 
 export default {
     name: 'AboutView',
@@ -66,36 +69,47 @@ export default {
         Dialog,
         Column,
         DataTable,
+        Toast
+
 
     },
     data() { //onde se declara o objetos e variáveis
         return {
             displayModalBusca: false,
-            word: [{
-                // "pa_palavra": "close", "pa_conjugacao": "fechar", "pa_traducao": "closed", "pa_aprovacao": 1,
-                // "pa_significado": "teste", "pa_ex_aprovado": "close in port", "pa_classe_gramatical": "verbo",
-                // "pa_categoria": "qualquer coisa"
-            }],
-            palavra: "",
+            word: [{}],
+            palavra: ""
 
         }
     },
+
     methods: { //todas as funções
         buscar() {
-            this.displayModalBusca = true;
-            axios.get("http://localhost:8082/search/" + this.palavra).then((response) => {
-                this.palavra = response;
-                console.log(response);
-            })
-        },
-        // exibir({
-        //    axios.get("http://localhost:8082/search/" + this.palavra).then((response) => {
-        //         this.word = response;
-        //         console.log(response);
-        // })
-    },
-}
+            this.word = [{}];
 
+            if (this.palavra == "") {
+                this.$toast.add({
+                    severity: 'warn', summary: ' Digite uma palavra para continuar a busca',
+                    life: 3000
+                });
+
+            } else {
+                axios.get("http://localhost:8081/search/" + this.palavra).then((response) => {
+                    if (response.data != "") {
+                        this.displayModalBusca = true;
+                        this.word = response.data;
+                    } else {
+                        this.$toast.add({
+                            severity: 'error', summary: ' Palavra não encontrada',
+                            life: 3000
+                        });
+                    }
+                })
+            }
+
+        }
+
+    }
+}
 
 </script>
 
