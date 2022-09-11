@@ -37,30 +37,18 @@ public class CSVHelper {
       for (CSVRecord csvRecord : csvRecords) {
         Palavra palavraConstructor = new Palavra();
         palavraConstructor.setPalavra(csvRecord.get(1));
-        //String palavra = csvRecord.get(1);
         palavraConstructor.setConjucacao(csvRecord.get(2));
-        // String conjugacao = csvRecord.get(2);
         palavraConstructor.setTraducao(csvRecord.get(3));
-        // String traducao = csvRecord.get(3);
-        String aprovada = csvRecord.get(4);
-        boolean bAprovado;
-        if (aprovada == "sim"){
-          bAprovado = true;
-        } else{
-          bAprovado = false;
-        }
-        palavraConstructor.setAprovada(bAprovado);
-        // String aprovada = csvRecord.get(4);
-        palavraConstructor.setSignificado(csvRecord.get(5));
-        // String significadoAlternativa = csvRecord.get(5);
-        palavraConstructor.setExemploAprovado(csvRecord.get(6));
-        // String exemploAprovado = csvRecord.get(6);
-        palavraConstructor.setClasseGramatical(csvRecord.get(7));
-        // String classeGramatical = csvRecord.get(7);
-        palavraConstructor.setCategoria(csvRecord.get(8));
-        // String categoriaNomesTecnicos = csvRecord.get(8);
 
-        // Palavra Palavra = new Palavra(palavra, traducao, aprovada, significadoAlternativa, conjugacao, exemploAprovado, classeGramatical, categoriaNomesTecnicos)
+        String aprovada = csvRecord.get(4);
+        boolean bAprovada = aprovada.equalsIgnoreCase("SIM");
+        palavraConstructor.setAprovada(bAprovada);
+
+        palavraConstructor.setSignificado(csvRecord.get(5));
+        palavraConstructor.setExemploAprovado(csvRecord.get(6));
+        palavraConstructor.setClasseGramatical(csvRecord.get(7));
+        palavraConstructor.setCategoria(csvRecord.get(8));
+
         uploadedData.add(palavraConstructor);
       }
       return uploadedData;
