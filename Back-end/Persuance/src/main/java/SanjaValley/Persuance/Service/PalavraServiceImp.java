@@ -22,6 +22,7 @@ public class PalavraServiceImp implements PalavraService{
         return palavraRepository.save(palavra);
     }
 
+    @Override
     public List<Palavra> buscaPorPalavra(String palavra){
 
         return palavraRepository.findByPalavra(palavra);

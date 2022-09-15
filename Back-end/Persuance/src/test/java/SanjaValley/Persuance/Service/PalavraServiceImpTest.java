@@ -18,15 +18,16 @@ public class PalavraServiceImpTest {
     @Autowired
     private PalavraService buscarPalavraTest;
 
+
     @Test
     public void buscaPalavraTest(){
-        Palavra palavra = new Palavra();
-        palavra.setPalavra("ALEXIA");
-        palavra.setId(1000);
-        assertNotNull(palavra.getPalavra());
+        //Palavra palavra = new Palavra();
+        //palavra.setPalavra("ALEXIA");
+        //palavra.setId(1000);
+        //assertNotNull(palavra.getPalavra());
 
-        buscarPalavraTest.novaPalavra();
+        //buscarPalavraTest.novaPalavra();
 
-
+        buscarPalavraTest.buscaPorPalavra("teste");
     }
 }
