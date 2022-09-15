@@ -47,4 +47,5 @@ public class Palavra {
 
     @Column(name = "pa_categoria")
     private String categoria;
+
 }
