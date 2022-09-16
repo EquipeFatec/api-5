@@ -5,9 +5,9 @@ import TelaUpload from '../views/TelaUpload.vue'
 
 const routes = [
   {
-      path: '/',
-      name: 'about',
-      component: AboutView
+    path: '/',
+    name: 'about',
+    component: AboutView
   },
   {
     path: '/tela-upload',

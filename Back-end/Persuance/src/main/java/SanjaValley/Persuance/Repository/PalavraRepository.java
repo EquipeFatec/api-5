@@ -1,9 +1,10 @@
 package SanjaValley.Persuance.Repository;
 
-import SanjaValley.Persuance.Entity.Palavra;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+import SanjaValley.Persuance.Entity.Palavra;
 
 public interface PalavraRepository extends JpaRepository<Palavra, Long> {
 
