@@ -2,6 +2,7 @@ package SanjaValley.Persuance.Service;
 
 import java.util.List;
 
+import net.bytebuddy.agent.builder.AgentBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,11 @@ public class PalavraServiceImp implements PalavraService{
 
     @Override
     public List<Palavra> buscaPorPalavra(String palavra){
+        List<Palavra> teste = palavraRepository.findByPalavra(palavra);
 
+        if(teste.isEmpty()){
+            return null;
+        }
         return palavraRepository.findByPalavra(palavra);
     }
 

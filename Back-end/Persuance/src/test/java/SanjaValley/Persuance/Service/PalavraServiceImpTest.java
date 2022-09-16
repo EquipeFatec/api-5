@@ -9,6 +9,7 @@ import org.springframework.test.annotation.Rollback;
 import javax.transaction.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SpringBootTest
 @Transactional
@@ -21,13 +22,14 @@ public class PalavraServiceImpTest {
 
     @Test
     public void buscaPalavraTest(){
-        //Palavra palavra = new Palavra();
-        //palavra.setPalavra("ALEXIA");
+        Palavra palavra = new Palavra();
+        palavra.setPalavra("ALEXIA");
         //palavra.setId(1000);
-        //assertNotNull(palavra.getPalavra());
+        assertNotNull(palavra.getPalavra());
 
         //buscarPalavraTest.novaPalavra();
 
-        buscarPalavraTest.buscaPorPalavra("teste");
+        assertNull(buscarPalavraTest.buscaPorPalavra("teste"));
+
     }
 }
