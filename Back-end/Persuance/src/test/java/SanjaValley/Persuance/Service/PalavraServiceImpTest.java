@@ -29,7 +29,21 @@ public class PalavraServiceImpTest {
 
         //buscarPalavraTest.novaPalavra();
 
+        assertNull(buscarPalavraTest.buscaPorPalavra(""));
         assertNull(buscarPalavraTest.buscaPorPalavra("teste"));
 
     }
+
+    /*@Test
+    public void buscaPalavraTest(){
+        Palavra palavra = new Palavra();
+        palavra.setPalavra("ALEXIA");
+        //palavra.setId(1000);
+        assertNotNull(palavra.getPalavra());
+
+        //buscarPalavraTest.novaPalavra();
+
+        assertNull(buscarPalavraTest.buscaPorPalavra(""));
+
+    }*/
 }
