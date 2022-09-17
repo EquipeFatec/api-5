@@ -42,7 +42,7 @@ O curso de [**Manutenção de Aeronaves**](https://fatecsjc-prd.azurewebsites.ne
 
 <hr/>
 
-# :computer: Sobre o Projeto
+# :information_source: Sobre o Projeto
 **Problema**
 <br/>
 A norma STE é utilizada pelos fabricantes de aviões e componentes aeronáuticos com a proposta de escrever em inglês utilizando não mais que 900 palavras (todos os fabricantes utilizam). 
@@ -71,6 +71,12 @@ Criado pela equipe _Sanja Valley_, este projeto visa desenvolver uma aplicação
 # :memo: Backlog
 
 <img src="https://github.com/EquipeFatec/api-5/blob/main/documents/backlog.png" width="100%"><br/>
+
+<hr/>
+
+# :computer: Tecnologias Utilizadas
+
+<img src="https://github.com/EquipeFatec/api-5/blob/main/images/tecnologias.png" width="100%"><br/>
 
 <hr/>
 
