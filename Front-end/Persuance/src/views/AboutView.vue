@@ -93,17 +93,24 @@ export default {
                 });
 
             } else {
-                axios.get("http://localhost:8081/search/" + this.palavra).then((response) => {
-                    if (response.data != "") {
-                        this.displayModalBusca = true;
-                        this.word = response.data;
-                    } else {
+                axios.get("http://localhost:8081/search/" + this.palavra)
+                    .then((response) => {
+                        if (response.data !== "") {
+                            this.displayModalBusca = true;
+                            this.word = response.data;
+                        } else {
+                            this.$toast.add({
+                                severity: 'error', summary: ' Palavra não encontrada',
+                                life: 3000
+                            });
+                        }
+                    }).catch((error) => {
                         this.$toast.add({
-                            severity: 'error', summary: ' Palavra não encontrada',
-                            life: 3000
-                        });
-                    }
-                })
+                            severity: 'error', summary: 'Erro no servidor',
+                            life: 10000
+                        })
+
+                    })
             }
 
         }

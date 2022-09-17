@@ -48,7 +48,7 @@ public class Palavra {
     @Column(name = "pa_categoria")
     private String categoria;
 
-    @Column(name = "pa_revisao")
-    private int revisao;
+    //@Column(name = "pa_revisao")
+    //private int revisao;
 
 }

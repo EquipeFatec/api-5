@@ -28,7 +28,7 @@ public class PalavraServiceImp implements PalavraService{
         List<Palavra> teste = palavraRepository.findByPalavra(palavra);
 
         if(teste.isEmpty()){
-            return null;
+            return teste;
         }
         return palavraRepository.findByPalavra(palavra);
     }
