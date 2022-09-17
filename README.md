@@ -45,7 +45,7 @@ O curso de [**Manutenção de Aeronaves**](https://fatecsjc-prd.azurewebsites.ne
 # :information_source: Sobre o Projeto
 **Problema**
 <br/>
-A norma STE é utilizada pelos fabricantes de aviões e componentes aeronáuticos com a proposta de escrever em inglês utilizando não mais que 900 palavras (todos os fabricantes utilizam). 
+A norma STE é utilizada pelos fabricantes de aviões e componentes aeronáuticos com a proposta de escrever em inglês utilizando não mais que 900 palavras (todos os fabricantes utilizam). Para a documentação das aeronaves, é necessário realizar uma verificação das palavras aprovadas para que esteja conforme a norma. Atualmente, no curso de Manutenção de Aeronaves, esta busca é realizada por meio de uma planilha que apresenta as palavras e suas características.
 <br/><br/>
 **Solução**
 <br/>
