@@ -10,7 +10,6 @@ import SanjaValley.Persuance.Entity.Palavra;
 import SanjaValley.Persuance.Repository.PalavraRepository;
 
 @Service
-
 public class PalavraServiceImp implements PalavraService{
 
     @Autowired
@@ -19,6 +18,13 @@ public class PalavraServiceImp implements PalavraService{
 
     @Override
     public Palavra novaPalavra(Palavra palavra) {
+
+        List<Palavra> _palavra = buscaPorPalavra(palavra.getPalavra());
+        if(_palavra.isEmpty()){
+            palavra.setRevisao(0);
+        }else{
+            palavra.setRevisao(palavra.getRevisao() + 1);
+        }
 
         return palavraRepository.save(palavra);
     }

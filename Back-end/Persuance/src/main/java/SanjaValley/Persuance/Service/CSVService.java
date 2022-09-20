@@ -20,6 +20,7 @@ public class CSVService {
     try {
       List<Palavra> Palavra = CSVHelper.csvToUploadedData(file.getInputStream());
       PalavraRepository.saveAll(Palavra);
+
     } catch(IOException e) {
       throw new RuntimeException("Failed to store csv data: " + e.getMessage());
     }
