@@ -1,5 +1,6 @@
 package SanjaValley.Persuance.Service;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 import net.bytebuddy.agent.builder.AgentBuilder;
@@ -19,24 +20,23 @@ public class PalavraServiceImp implements PalavraService{
     @Override
     public Palavra novaPalavra(Palavra palavra) {
 
-        List<Palavra> _palavra = buscaPorPalavra(palavra.getPalavra());
-        if(_palavra.isEmpty()){
-            palavra.setRevisao(0);
-        }else{
-            palavra.setRevisao(palavra.getRevisao() + 1);
+      List<Palavra> palavraList = palavraRepository.findByPalavraAndClasseGramaticalOrderByRevisaoDesc(palavra.getPalavra(),palavra.getClasseGramatical());
+      if(!palavraList.isEmpty()){
+          palavra.setRevisao(palavraList.get(0).getRevisao() +1);
+      }else{
+          palavra.setRevisao(1);
         }
-
-        return palavraRepository.save(palavra);
+       return palavraRepository.save(palavra);
     }
 
     @Override
     public List<Palavra> buscaPorPalavra(String palavra){
-        List<Palavra> teste = palavraRepository.findByPalavra(palavra);
-
+        //todo if usuario admin uma busca
+        List<Palavra> teste = palavraRepository.findByPalavraOrderByRevisaoDesc(palavra);
         if(teste.isEmpty()){
             return teste;
         }
-        return palavraRepository.findByPalavra(palavra);
+        return palavraRepository.findByPalavraOrderByRevisaoDesc(palavra);
     }
 
 
