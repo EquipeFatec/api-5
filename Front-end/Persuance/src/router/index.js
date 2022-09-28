@@ -2,6 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import AboutView from '../views/AboutView.vue'
 import HomeView from '../views/HomeView.vue'
 import TelaUpload from '../views/TelaUpload.vue'
+import Login from '../views/Login.vue'
+
 
 const routes = [
   {
@@ -13,6 +15,11 @@ const routes = [
     path: '/tela-upload',
     name: 'tela-upload',
     component: TelaUpload
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   }
 
 
@@ -29,6 +36,16 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from) => {
+  // ...
+  // explicitly return false to cancel the navigation
+  const estaAutenticado = localStorage.getItem('userToken');
+
+  if (to.name.includes('tela-upload') && !estaAutenticado) {
+    return { name: 'about' }
+  }
 })
 
 export default router
