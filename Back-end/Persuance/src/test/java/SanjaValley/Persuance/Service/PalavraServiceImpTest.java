@@ -8,6 +8,8 @@ import org.springframework.test.annotation.Rollback;
 
 import javax.transaction.Transactional;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -16,18 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PalavraServiceImpTest {
 
     @Autowired
-    private PalavraService buscarPalavraTest;
-
+    private PalavraService service;
 
     @Test
-    public void instaciarPalavraTest(){
-        Palavra palavra = new Palavra();
-        palavra.setPalavra("ALEXIA");
-        assertNotNull(palavra.getPalavra());
-    }
-    @Test
-    public void buscarPalavraVaziaTest(){
-        assertTrue(buscarPalavraTest.buscaPorPalavra("").isEmpty());
+    public void instaciarPalavraTest(){//quando a palavra for vazia retorna a lista vazia
+        List<Palavra> palavraList = service.buscaPorPalavra(null);
+        assertTrue(palavraList.isEmpty());
+
     }
 
 }

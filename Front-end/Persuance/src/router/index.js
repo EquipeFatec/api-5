@@ -1,7 +1,10 @@
+import BuscarViewVue from '@/views/BuscarView.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import AboutView from '../views/AboutView.vue'
 import HomeView from '../views/HomeView.vue'
 import TelaUpload from '../views/TelaUpload.vue'
+import BuscarView from '@/views/BuscarView.vue'
+import AdmView from '@/views/AdmView.vue'
 
 const routes = [
   {
@@ -13,6 +16,16 @@ const routes = [
     path: '/tela-upload',
     name: 'tela-upload',
     component: TelaUpload
+  },
+  {
+    path: '/tela-adm',
+    name: 'tela-adm',
+    component: BuscarView
+  },
+  {
+    path: '/administrador',
+    name: 'administrador',
+    component: AdmView
   }
 
 
