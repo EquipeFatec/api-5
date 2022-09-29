@@ -10,7 +10,8 @@
 
     <InputText type="text" v-model="login" placeholder="Login" />
     <br />
-    <InputText type="text" v-model="senha" placeholder="Senha" />
+    <!-- <InputText type="text" v-model="senha" placeholder="Senha" /> -->
+    <Password v-model="senha" placeholder="Senha" toggleMask></Password>
 
     <div class="p-button-rounded">
       <Button
@@ -38,6 +39,8 @@ import Column from "primevue/column";
 import DataTable from "primevue/datatable";
 import axios from "axios";
 import Toast from "primevue/toast";
+import Password from 'primevue/password';
+
 
 export default {
   name: "Login",
@@ -54,6 +57,7 @@ export default {
     Column,
     DataTable,
     Toast,
+    Password
   },
   data() {
     //onde se declara o objetos e variáveis
