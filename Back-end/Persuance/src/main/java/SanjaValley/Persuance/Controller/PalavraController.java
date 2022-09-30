@@ -20,7 +20,7 @@ public class PalavraController {
     private PalavraServiceImp palavraService;
 
     @GetMapping(value = "/{palavra}")
-    public ResponseEntity<List<Palavra>> findByPalavra(@PathVariable String palavra){
+    public ResponseEntity<List<Palavra>> buscaPorPalavra(@PathVariable String palavra){
             List<Palavra> list = palavraService.buscaPorPalavra(palavra);
             return new ResponseEntity<>(list, HttpStatus.OK);
     }
