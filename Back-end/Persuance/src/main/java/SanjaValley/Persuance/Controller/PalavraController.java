@@ -21,25 +21,13 @@ public class PalavraController {
 
     @GetMapping(value = "/{palavra}")
     public ResponseEntity<List<Palavra>> findByPalavra(@PathVariable String palavra){
-        try {
             List<Palavra> list = palavraService.buscaPorPalavra(palavra);
-            if(list.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
             return new ResponseEntity<>(list, HttpStatus.OK);
-        }catch(Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
-
 
     @PostMapping("/save")
     public ResponseEntity<Palavra> adicionaPalavra(@RequestBody Palavra palavra) {
-        try {
             Palavra _palavra = palavraService.novaPalavra(palavra);
             return new ResponseEntity<>(_palavra, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 }

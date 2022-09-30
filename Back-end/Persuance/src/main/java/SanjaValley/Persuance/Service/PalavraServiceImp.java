@@ -1,9 +1,7 @@
 package SanjaValley.Persuance.Service;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
-import net.bytebuddy.agent.builder.AgentBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +18,12 @@ public class PalavraServiceImp implements PalavraService{
     @Override
     public Palavra novaPalavra(Palavra palavra) {
 
-      List<Palavra> palavraList = palavraRepository.findByPalavraAndClasseGramaticalOrderByRevisaoDesc(palavra.getPalavra(),palavra.getClasseGramatical());
+        if(palavra.getPalavra().isEmpty() || palavra.getPalavra() == null
+        || palavra.getClasseGramatical().isEmpty() || palavra.getClasseGramatical() == null){
+            throw new IllegalArgumentException("Palavra ou Classe Gramatical não foi preenchida");
+        }
+      List<Palavra> palavraList = palavraRepository.findByPalavraAndClasseGramaticalOrderByRevisaoDesc(palavra.getPalavra()
+              ,palavra.getClasseGramatical());
       if(!palavraList.isEmpty()){
           palavra.setRevisao(palavraList.get(0).getRevisao() +1);
       }else{
@@ -32,11 +35,15 @@ public class PalavraServiceImp implements PalavraService{
     @Override
     public List<Palavra> buscaPorPalavra(String palavra){
         //todo if usuario admin uma busca
-        List<Palavra> teste = palavraRepository.findByPalavraOrderByRevisaoDesc(palavra);
-        if(teste.isEmpty()){
-            return teste;
+
+        if(palavra.isEmpty() || palavra == null){
+            throw new IllegalArgumentException("Não foi inserida nenhuma palavra");
         }
-        return palavraRepository.findByPalavraOrderByRevisaoDesc(palavra);
+        List<Palavra> teste = palavraRepository.findUltimaRevisaoPalavra(palavra);
+        if(teste.isEmpty()){
+            throw new IllegalStateException("Nenhuma Palavra Encontrada");
+        }
+        return teste;
     }
 
 
