@@ -25,6 +25,12 @@ public class PalavraController {
             return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/edita/{palavra}")
+    public ResponseEntity<List<Palavra>> buscaPorPalavraEClasse(@PathVariable String palavra, String classe){
+        List<Palavra> list = palavraService.buscaPalavraEClasseGramatical(palavra, classe);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
     @PostMapping("/save")
     public ResponseEntity<Palavra> adicionaPalavra(@RequestBody Palavra palavra) {
             Palavra _palavra = palavraService.novaPalavra(palavra);
