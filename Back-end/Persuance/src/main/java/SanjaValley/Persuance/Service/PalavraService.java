@@ -9,4 +9,6 @@ public interface PalavraService {
     public Palavra novaPalavra(Palavra palavra);
 
     public List<Palavra> buscaPorPalavra(String palavra);
+
+    public List<Palavra> buscaPalavraEClasseGramatical(String palavra, String classeGramatical);
 }
