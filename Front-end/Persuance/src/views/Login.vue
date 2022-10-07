@@ -1,25 +1,27 @@
 <template>
   <Toast />
-  <div class="about">
-    <div>
-      <img alt="logo" src="../assets/logoo.png" height="200" class="mr-2" />
-    </div>
+  <div style="height: 100vh; justify-content: center; display: flex; align-items: center;">
+    <div class="container">
+      <div>
+        <img alt="logo" src="../assets/logoo.png" height="80" width="240" />
+      </div>
+      <br/>
 
-    <br/>
-    <br/>
+      <div style="width: 100%">
+        <InputText type="text" v-model="login" placeholder="Login" />
+        <br/>
+        <br/>
+        <Password v-model="senha" placeholder="Senha" toggleMask></Password>
+      </div>
 
-    <InputText type="text" v-model="login" placeholder="Login" />
-    <br />
-    <!-- <InputText type="text" v-model="senha" placeholder="Senha" /> -->
-    <Password v-model="senha" placeholder="Senha" toggleMask></Password>
-
-    <div class="p-button-rounded">
-      <Button
-        label="Entrar"
-        class="p-button-outlined p-button-info"
-        @click.prevent="entrar"
-      />
-    </div>
+      <div class="p-button-rounded">
+        <Button
+          label="Entrar"
+          class="p-button-outlined p-button-info"
+          @click.prevent="entrar"
+        />
+      </div>
+    </div>  
   </div>
 </template>
 
@@ -101,57 +103,23 @@ export default {
 };
 </script>
 
-<style>
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+<style scoped>
 
-.about {
-  background-color: rgba(242, 248, 248, 0.452);
-  height: 100vh;
-  justify-content: center;
+.container {
+  width: 35%;
+  box-shadow: 2px 3px 9px 0px rgb(201 201 201);
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-.mr-2 {
-  width: 270px;
-  height: auto;
-}
-
-.p-float-label {
-  margin-top: 10px;
+::v-deep(.p-password input) {
+    width:15rem
 }
 
 .p-inputtext {
-  width: 500px;
-  border-radius: 9px;
-  border-color: rgb(39, 39, 88);
-}
-
-.p-button-rounded {
-  margin-top: 15px;
-  display: flex;
-  width: 25%;
-  size: 25px;
-  justify-content: space-around;
-  border-radius: 55px;
-}
-
-.p-button-outlined p-button-info {
-  border-color: rgb(70, 70, 175);
-}
-
-.search {
-  margin-top: 15px;
-  display: flex;
-  width: 25%;
-  size: 25px;
-  justify-content: space-around;
-  border-radius: 55px;
+  width: 15rem;
 }
 </style> >
 
