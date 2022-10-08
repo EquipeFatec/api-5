@@ -1,4 +1,4 @@
-<!-- <template>
+<!--<template>
     <div class="aboutTeste">
         <div class="card">
             <h2> Cadastro de palavras</h2>
@@ -17,10 +17,7 @@
             <input type="text" name="Palavra" placeholder="Palavra" id="palavra">
             <input type="text" name="ClasseGramatical" placeholder="Classe Gramatical" id="cGramatical">
             <div class="buttons">
-                <button model:visible="displayModalBusca" :modal="true" @click="buscar">Editar</button>
-                <Dialog class="busca" v-model:visible="displayModalBusca" :style="{ width: '100vw' }" :modal="true">
-                    <h1>teste</h1>
-                </Dialog>
+                <button :modal="true" @click="buscar">Editar</button>
             </div>
 
         </div>
@@ -43,20 +40,17 @@ export default {
     },
     data() {
         return {
-            displayModalBusca: false,
             word: [{}],
             palavra: ""
         }
     },
-    methods() {
+    methods:{
         buscar() {
             this.word = [{}];
 
             if (this.palavra == "") {
                 this.$toast.add({
-                    severity: 'warn', summary: ' Digite uma palavra para continuar a busca',
-                    life: 3000
-                });
+                    severity: 'warn', summary: ' Digite uma palavra para continuar a busca', life: 3000});
 
             } else {
                 axios.get("http://localhost:8081/search/" + this.palavra)
@@ -79,10 +73,11 @@ export default {
                     })
             }
         }
+
     }
 
 }
-}
+
 </script>
 
 <style>

@@ -5,58 +5,16 @@
                 <MegaMenu :model="items" />
             </div>
             <div class="card">
-                <Splitter
-                    style="height:37rem; width:60rem; margin-left:60%; margin-bottom: 10%; margin-top: 10%; margin-right: 90%;  margin-left: 0%; background-color: #F2E0F7; text-align:center">
-                    <SplitterPanel>
-                        <Card style="width: 100%; height: 100%; margin-bottom: 45%; justify-content: center;">
-                            <template #title> Inclusão de palavra </template>
-                            <template #content>
-                                <div class="card">
-                                    <div class=".p-input">
-                                        <span class="p-float-label" style="margin-bottom: 25%; margin-top: 0%;">
-                                            <InputText type="text" v-model="palavra" placeholder="Buscar" />
-                                            <InputText type="text" v-model="conjunção" placeholder="Conjunção" />
-                                            <InputText type="text" v-model="traducao" placeholder="Tradução" />
-                                            <InputText type="text" v-model="aprovada" placeholder="Aprovada" />
-                                            <InputText type="text" v-model="significado" placeholder="Significado" />
-                                            <InputText type="text" v-model="exemploAprovado"
-                                                placeholder="Exemplo aprovado" />
-                                            <InputText type="text" v-model="classeGramatical"
-                                                placeholder="Classe gramatical" />
-                                            <InputText type="text" v-model="categoria" placeholder="Categoria" />
-                                            <div class="buttons">
-                                                <button @click="buscar">Inserir</button>
-
-                                            </div>
-
-                                        </span>
-                                    </div>
-                                </div>
-                            </template>
-                        </Card>
-                    </SplitterPanel>
-                    <SplitterPanel>
                         <Card style="width: 100%; height: 100%; margin-bottom: 80%">
-                            <template #title> Inclusão de palavra </template>
+                            <template #title> Palavra </template>
                             <template #content>
                                 <div class="card">
                                     <div class=".p-input">
                                         <span class="p-float-label">
                                             <InputText type="text" v-model="palavra" placeholder="Palavra" />
-                                            <div class="field col-12 md:col-4">
-                                                <span class="p-float-label">
-                                                    <Dropdown id="dropdown" v-model="value8" :options="cities"
-                                                        optionLabel="name" />
-                                                    <label for="dropdown"> Classe Gramatical</label>
-                                                </span>
-                                            </div>
                                             <Button label="Editar" type="button" class="buttons"
                                                 style="margin-left: 5px" @click="displayModalBusca" />
                                         </span>
-
-                                        <Dialog class="busca" v-model:visible="displayModalBusca"
-                                            :style="{ width: '100vw' }" :modal="true">
-
                                             <h2> Cadastro de palavras</h2>
                                             <input type="text" name="Palavra" placeholder="Palavra" id="palavra">
                                             <input type="text" name="Conjucacao" placeholder="Conjunção"
@@ -67,18 +25,17 @@
                                                 id="significado">
                                             <input type="text" name="Exemplo aprovado" placeholder="Exemplo aprovado"
                                                 id="exemplo">
+                                            <Dropdown id="dropdown" v-model="value8" :options="cities"
+                                                        optionLabel="name" />
+                                                    <label for="dropdown"> Classe Gramatical</label>
                                             <input type="text" name="Classe gramatical" placeholder="Classe gramatical"
                                                 id="classe">
                                             <input type="text" name="Categoria" placeholder="Categoria" id="categoria">
                                             <button @click="buscar">Cadastrar</button>
-                                        </Dialog>
                                     </div>
                                 </div>
                             </template>
                         </card>
-                    </SplitterPanel>
-
-                </Splitter>
             </div>
 
         </div>
@@ -98,8 +55,7 @@ import { ref } from 'vue';
 import Image from 'primevue/image';
 import Button from 'primevue/button';
 import Dropdown from 'primevue/dropdown';
-import Splitter from 'primevue/splitter';
-import SplitterPanel from 'primevue/splitterpanel';
+import axios from 'axios';
 
 export default {
     name: 'BuscarView',
@@ -112,13 +68,10 @@ export default {
         Image,
         Button,
         Dropdown,
-        Splitter,
-        SplitterPanel
 
     },
     data() {
         return {
-            displayModalBusca: false,
             cities: [
                 { name: 'Verbo', code: 'Verbo' },
                 { name: 'Substantivo', code: 'Substantivo' },
@@ -135,22 +88,9 @@ export default {
                                 label: 'Nome',
                                 items: [{ label: 'Setting 1.1' }, { label: 'Setting 1.2' }]
                             },
-                            {
-                                label: 'Setting 2',
-                                items: [{ label: 'Setting 2.1' }, { label: 'Setting 2.2' }]
-                            },
-                            {
-                                label: 'Setting 3',
-                                items: [{ label: 'Setting 3.1' }, { label: 'Setting 3.2' }]
-                            }
-                        ],
-                        [
-                            {
-                                label: 'Setting 4',
-                                items: [{ label: 'Setting 4.1' }, { label: 'Setting 4.2' }]
-                            }
                         ]
-                    ]
+                    ]   
+
                 },
                 {
                     label: 'Arquivo', icon: 'pi pi-fw pi-cloud-upload',
@@ -167,17 +107,55 @@ export default {
         }
     },
     methods: {
-        openModalBusca() {
-            this.displayModalBusca = true;
-        },
-        toggle(event) {
-            this.$refs.menu.toggle(event);
+        buscar() {
+
+            this.word = [{}];
+
+            if (this.palavra == "") {
+                this.$toast.add({
+                    severity: 'warn', summary: ' Digite uma palavra para continuar a busca',
+                    life: 3000
+                });
+
+            } else {
+                axios.get("http://localhost:8081/search/" + this.palavra)
+                    .then((response) => {
+                        if (response.data !== "") {
+                            this.displayModalBusca = true;
+                            this.word = response.data;
+                        } else {
+                            this.$toast.add({
+                                severity: 'error', summary: ' Palavra não encontrada',
+                                life: 3000
+                            });
+                        }
+                    }).catch((error) => {
+                        this.$toast.add({
+                            severity: 'error', summary: 'Erro no servidor',
+                            life: 10000
+                        })
+
+                    })
+            }
         },
         save() {
-            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+            axios.post("http://localhost:8081/search/save",this.word).then(() => {
+                this.$toast.add({severity:'sucess', summary:'Palavra ok', life: 3000});
+                this.resetForm();
+            })
+                .catch(() => {
+                    this.$toast.add({severity:'error', summary:'Erro', detail:'Não foi possível realizar o cadastro'})
+                }) 
+        }, 
+        resetForm(){
+            this.palavra = '';
+            this.conjucacao = '';
+            this.tradutor = '';
         }
-    },
+        
+        }
 }
+
 </script>
 
 <style>
