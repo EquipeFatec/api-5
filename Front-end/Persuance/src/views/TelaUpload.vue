@@ -44,34 +44,6 @@ export default {
         detail: "Upload concluído",
         life: 3000,
       });
-
-      // alert("Incluso com sucesso");
-      this.enviarArquivo();
-    },
-
-    enviarArquivo() {
-      const formData = new FormData();
-
-      formData.append("file", this.file);
-
-      const headers = {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${localStorage.getItem("userToken")}`,
-      };
-
-      axios
-        .post("http://localhost:8081/api/csv/upload", formData, { headers })
-        .then((res) => {
-          res.data.files;
-          res.status;
-
-          if (res.status === 200) {
-            alert(`O arquivo ${this.fileName} foi incluido`);
-            this.afterSubmit();
-          } else {
-            alert(`Erro ao importar arquivo`);
-          }
-        });
     },
   },
 };
