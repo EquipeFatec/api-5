@@ -80,7 +80,7 @@ export default {
         password: this.senha 
       }
       axios
-        .post("http://localhost:8082/login", body, headers)
+        .post("http://localhost:8081/login", body, headers)
         .then(result => {
           if (result.data !== "" && result.status === 200) {
             console.log(result);
