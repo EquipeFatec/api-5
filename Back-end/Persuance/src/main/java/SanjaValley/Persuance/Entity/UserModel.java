@@ -32,9 +32,9 @@ public class UserModel implements UserDetails {
 	@Size(max = 120)
 	private String password;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<RoleModel> roles = new HashSet<>();
+	// @ManyToMany(fetch = FetchType.LAZY)
+	// @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	// private Set<RoleModel> roles = new HashSet<>();
 
 	public UserModel() {
 	}
@@ -68,13 +68,13 @@ public class UserModel implements UserDetails {
         this.password = password;
     }
 
-	public Set<RoleModel> getRoles() {
-		return roles;
-	}
+	// public Set<RoleModel> getRoles() {
+	// 	return roles;
+	// }
 
-	public void setRoles(Set<RoleModel> roles) {
-		this.roles = roles;
-	}
+	// public void setRoles(Set<RoleModel> roles) {
+	// 	this.roles = roles;
+	// }
 
     @Override
     public boolean isAccountNonExpired() {
