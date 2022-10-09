@@ -20,10 +20,16 @@ public class PalavraServiceImpTest {
     @Autowired
     private PalavraService service;
 
+
     @Test
-    public void instaciarPalavraTest(){//quando a palavra for vazia retorna a lista vazia
-        List<Palavra> palavraList = service.buscaPorPalavra(null);
-        assertTrue(palavraList.isEmpty());
+    public void instaciarPalavraTest(){
+        Palavra palavra = new Palavra();
+        palavra.setPalavra("ALEXIA");
+        assertNotNull(service.buscaPorPalavra(palavra.getPalavra()));
+    }
+    @Test
+    public void buscarPalavraVaziaTest(){
+        assertTrue(service.buscaPorPalavra("").isEmpty());
 
     }
 

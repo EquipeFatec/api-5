@@ -5,6 +5,8 @@ import HomeView from '../views/HomeView.vue'
 import TelaUpload from '../views/TelaUpload.vue'
 import BuscarView from '@/views/BuscarView.vue'
 import AdmView from '@/views/AdmView.vue'
+import Login from '../views/Login.vue'
+
 
 const routes = [
   {
@@ -26,6 +28,9 @@ const routes = [
     path: '/administrador',
     name: 'administrador',
     component: AdmView
+    path: '/login',
+    name: 'login',
+    component: Login
   }
 
 
@@ -42,6 +47,20 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from) => {
+  // ...
+  // explicitly return false to cancel the navigation
+  const estaAutenticado = localStorage.getItem('userToken');
+
+  // booleana que verifica se usuario esta numa tela pertencente aos admins
+  const isTelaAdmin = to.name.includes('tela-upload') || 
+                      to.name.includes('Dashboard')
+
+  if (isTelaAdmin && !estaAutenticado) {
+    return { name: 'about' }
+  }
 })
 
 export default router
