@@ -43,7 +43,11 @@ router.beforeEach((to, from) => {
   // explicitly return false to cancel the navigation
   const estaAutenticado = localStorage.getItem('userToken');
 
-  if (to.name.includes('tela-upload') && !estaAutenticado) {
+  // booleana que verifica se usuario esta numa tela pertencente aos admins
+  const isTelaAdmin = to.name.includes('tela-upload') || 
+                      to.name.includes('Dashboard')
+
+  if (isTelaAdmin && !estaAutenticado) {
     return { name: 'about' }
   }
 })
